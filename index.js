@@ -4,6 +4,9 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
+//Connect to the database
+mongoose
+
 //handles CORS issues that may occur when using APIs
     //ref: "https://codeutility.org/how-does-access-control-allow-origin-header-work/"
 app.use((req, res, next) => {
