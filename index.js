@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/api');
-require('dotenv').config()
+require('dotenv').config({path: './.env'});
 
 const app = express();
 
@@ -32,12 +32,10 @@ app.use(bodyParser.json());
 
 app.use('/api', routes);
 
-app.use((err, req, res, next) => {
-  console.log(err);
-  next();
+app.use((req, res, next) => {
+  res.send('Welcome to Express');
 });
 
-//listening to port and see if it connects
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
